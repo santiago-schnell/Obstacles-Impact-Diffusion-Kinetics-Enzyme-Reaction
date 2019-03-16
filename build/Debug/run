@@ -1,0 +1,26 @@
+#!/bin/bash
+
+folder=test1
+spin=0
+wfi=100
+iterations=1000
+conc_E=1
+conc_S=2
+conc_O=20
+size_O=1
+mob_O=1
+f_rate=100
+r_rate=2
+c_rate=4
+wf_rate=1
+wr_rate=1
+
+mkdir $folder
+
+for i in {1..25}
+do
+  ./Diffusion2 $folder/Results1-$conc_O-$size_O-$spin-$i.txt $folder/Results2-$conc_O-$size_O-$spin-$i.txt $folder/Results3-$conc_O-$i.txt $folder/Results4-$conc_O-$i.txt $spin $wfi $iterations $conc_E $conc_S $conc_O $size_O $mob_O $f_rate $r_rate $c_rate $wf_rate $wr_rate
+   echo "Executed $i times"
+   sleep 1 
+done
+

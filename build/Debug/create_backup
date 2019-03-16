@@ -1,0 +1,29 @@
+#!/bin/bash
+
+folder=ss24
+iterations=1000
+conc_E=1
+f_rate=5
+r_rate=0.2
+c_rate=0.4
+wfi=0
+wf_rate=1
+wr_rate=1
+mob_O=1
+k=0
+
+for i in 10 20 30 40
+do
+ for j in 100
+ do
+  for conc_S in 2 6 10 14 18 22 26 30
+  do
+   for l in {1..50}
+    do 
+     ./Diffusion2 $folder/Results1-$i-$j-$conc_S-$l.txt name2 name3 name4 $k $wfi $iterations $conc_E $conc_S $i $j $mob_O $f_rate $r_rate $c_rate $wf_rate $wr_rate
+    sleep 1 
+   done
+  done
+ done
+done
+
